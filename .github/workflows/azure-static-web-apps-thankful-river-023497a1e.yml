@@ -15,17 +15,11 @@ jobs:
     runs-on: ubuntu-latest
     name: Build and Deploy Job
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v5
         with:
-          submodules: recursive
-          lfs: false
-          fetch-depth: 0
-      - name: Initialize and Update Submodules
-        run: |
-          git submodule sync
-          git submodule update --init --recursive
+          submodules: true
       - name: List files
-        run: ls -R .
+        run: ls -a
       - name: Build And Deploy
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1
