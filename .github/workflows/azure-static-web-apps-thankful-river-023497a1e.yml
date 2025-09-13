@@ -20,6 +20,10 @@ jobs:
           submodules: recursive
           lfs: false
           fetch-depth: 0
+      - name: Initialize and Update Submodules
+        run: |
+          git submodule sync
+          git submodule update --init --recursive
       - name: List files
         run: ls -R .
       - name: Build And Deploy
