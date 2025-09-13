@@ -17,12 +17,9 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          submodules: true
+          submodules: recursive
           lfs: false
-      - name: Initialize and Update Submodules
-        run: |
-          git submodule init
-          git submodule update --remote --merge
+          fetch-depth: 0
       - name: Build And Deploy
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1
