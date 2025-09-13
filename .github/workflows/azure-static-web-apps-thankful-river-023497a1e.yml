@@ -19,6 +19,10 @@ jobs:
         with:
           submodules: true
           lfs: false
+      - name: Initialize and Update Submodules
+        run: |
+          git submodule init
+          git submodule update --remote --merge
       - name: Build And Deploy
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1
